@@ -1,7 +1,7 @@
 export const config = { runtime: "nodejs" };
 
 import type { NextApiRequest, NextApiResponse } from "next";
-import { kvGet, kvSet } from "./_kv";
+import { kvGet, kvSet, kvDel, getSessionId } from "@/lib/_kv";
 import dayjs from "dayjs";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
