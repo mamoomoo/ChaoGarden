@@ -1,3 +1,5 @@
+export const config = { runtime: "nodejs" };
+
 import type { NextApiRequest, NextApiResponse } from "next";
 import { kvGet, kvSet } from "./_kv";
 import dayjs from "dayjs";
@@ -50,4 +52,3 @@ export function computeForm(alignment: number, adult: boolean, levels: Record<st
   const spriteKey = `${a}_${stage}_${specialization}`;
   return { stage, alignment: a, specialization, spriteKey };
 }
-export const config = { runtime: "nodejs" };
