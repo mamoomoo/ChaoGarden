@@ -1,3 +1,5 @@
+export const config = { runtime: "nodejs" };
+
 import type { NextApiRequest } from "next";
 import { kv } from "@vercel/kv";
 
