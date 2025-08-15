@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --ui-bg: #0b1220; --ui-card: #101827; --ui-bar: #1f2937; --ui-hero: #3b82f6; --ui-dark: #8b5cf6; --ui-neutral: #22c55e; }
+body { background: var(--ui-bg); color: #e5e7eb; font-family: ui-sans-serif, system-ui, -apple-system; }
+.stat-label { @apply text-xs uppercase tracking-wide text-gray-300; }
+.stat-row { @apply flex items-center gap-2 py-1; }
+.stat-bar { @apply h-2 w-full rounded bg-gray-800 overflow-hidden; }
+.stat-fill { @apply h-2 rounded transition-all duration-700 ease-out; }
+.card { @apply max-w-md mx-auto p-4 rounded-xl shadow-lg; background: var(--ui-card); }
+.btn { @apply px-3 py-1.5 rounded bg-gray-700 hover:bg-gray-600 text-sm; }
