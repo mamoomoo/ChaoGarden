@@ -48,5 +48,6 @@ export function computeForm(alignment: number, adult: boolean, levels: Record<st
   }
   const specialization = adult ? top : "balanced";
   const spriteKey = `${a}_${stage}_${specialization}`;
+  const config = { runtime: "nodejs" };
   return { stage, alignment: a, specialization, spriteKey };
 }
