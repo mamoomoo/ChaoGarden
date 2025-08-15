@@ -18,5 +18,7 @@
     "autoprefixer": "10.4.19",
     "postcss": "8.4.41",
     "typescript": "5.4.5"
+    "@vercel/kv": "1.0.1",
+
   }
 }
