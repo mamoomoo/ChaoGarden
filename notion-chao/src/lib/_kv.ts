@@ -1,24 +1,29 @@
+export const config = { runtime: "nodejs" };
+
 import type { NextApiRequest } from "next";
-import { kv } from "@vercel/kv";
+import { Redis } from "@upstash/redis";
+
+const redis = new Redis({
+  url: process.env.KV_REST_API_URL!,
+  token: process.env.KV_REST_API_TOKEN!,
+});
 
 const ns = process.env.KV_NAMESPACE || "chao";
 
 export async function kvGet(key: string) {
-  return kv.get(`${ns}:${key}`);
+  return redis.get(`${ns}:${key}`);
 }
 
 export async function kvSet(key: string, value: any) {
-  // kv client will serialize JSON for you
-  await kv.set(`${ns}:${key}`, value);
+  await redis.set(`${ns}:${key}`, value);
   return true;
 }
 
 export async function kvDel(key: string) {
-  await kv.del(`${ns}:${key}`);
+  await redis.del(`${ns}:${key}`);
   return true;
 }
 
-// read the browser session cookie
 export function getSessionId(req: NextApiRequest) {
   const cookie = req.headers.cookie || "";
   const match = cookie.match(/chao_session=([a-zA-Z0-9_-]+)/);
