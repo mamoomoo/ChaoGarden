@@ -1,3 +1,5 @@
+export const config = { runtime: "nodejs" };
+
 import type { NextApiRequest, NextApiResponse } from "next";
 import { kvGet, kvSet, getSessionId } from "./_kv";
 import dayjs from "dayjs";
@@ -63,5 +65,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   res.status(200).json({ throttled: false, state, changedStat: s, gain });
 }
-export const config = { runtime: "nodejs" };
 
